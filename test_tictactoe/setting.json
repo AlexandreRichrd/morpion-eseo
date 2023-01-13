@@ -1,0 +1,15 @@
+"make-runner.env": {
+  "development": {
+    "AWS_PROFILE": "development",
+    "RAILS_ENV": "development",
+    "ROLE": "admin",
+    "ENABLE_MFA": false
+  },
+  "staging": {
+    "AWS_PROFILE": "staging",
+    "RAILS_ENV": "staging",
+    "ROLE": "user",
+    "ENABLE_MFA": true
+  },
+  "none": {}
+}

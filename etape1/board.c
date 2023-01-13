@@ -19,25 +19,106 @@
  */
 static bool isGameFinished (const PieceType boardSquares[3][3], Coordinate lastChangeX, Coordinate lastChangeY, GameResult *gameResult)
 {
-  // TODO: à compléter
+  // Vérifier les possibilités de victoire
+
+  if(boardSquares[lastChangeX][0] == boardSquares[lastChangeX][1] && boardSquares[lastChangeX][1] == boardSquares[lastChangeX][2])
+  {
+    if(boardSquares[lastChangeX][0] == CIRCLE)
+    {
+      *gameResult = CIRCLE_WINS;
+      return true;
+    }
+    else if(boardSquares[lastChangeX][0] == CROSS)
+    {
+      *gameResult = CROSS_WINS;
+      return true;
+    }
+  }
+  else if(boardSquares[0][lastChangeY] == boardSquares[1][lastChangeY] && boardSquares[1][lastChangeY] == boardSquares[2][lastChangeY])
+  {
+    if(boardSquares[0][lastChangeY] == CIRCLE)
+    {
+      *gameResult = CIRCLE_WINS;
+      return true;
+    }
+    else if(boardSquares[0][lastChangeY] == CROSS)
+    {
+      *gameResult = CROSS_WINS;
+      return true;
+    }
+  }
+  else if(boardSquares[0][0] == boardSquares[1][1] && boardSquares[1][1] == boardSquares[2][2])
+  {
+    if(boardSquares[0][0] == CIRCLE)
+    {
+      *gameResult = CIRCLE_WINS;
+      return true;
+    }
+    else if(boardSquares[0][0] == CROSS)
+    {
+      *gameResult = CROSS_WINS;
+      return true;
+    }
+  }
+  else if(boardSquares[0][2] == boardSquares[1][1] && boardSquares[1][1] == boardSquares[2][0])
+  {
+    if(boardSquares[0][2] == CIRCLE)
+    {
+      *gameResult = CIRCLE_WINS;
+      return true;
+    }
+    else if(boardSquares[0][2] == CROSS)
+    {
+      *gameResult = CROSS_WINS;
+      return true;
+    }
+  }
+  else
+  {
+    return false;
+  }
 }
 
 void Board_init (SquareChangeCallback onSquareChange, EndOfGameCallback onEndOfGame)
-{
-  // TODO: à compléter
+{ 
+  // On initialise le board
+  
+  
 }
 
 void Board_free ()
 {
-  // TODO: à compléter
+  // On détruit le board
+  
 }
 
 PutPieceResult Board_putPiece (Coordinate x, Coordinate y, PieceType kindOfPiece)
 {
-  // TODO: à compléter
+  // if(x < 0 || x > 2 || y < 0 || y > 2) // On vérifie si les cooredonnées sont bien dans la gille
+  // {
+  //   return OUT_OF_BOARD;
+  // }
+  // else if(boardSquares[x][y] != NONE) // On vérifie si la piece placée est dans une case vide
+  // {
+  //   return SQUARE_ALREADY_USED;
+  // }
+  // else // Si tout est bon, on place la pièce
+  // {
+  //   boardSquares[x][y] = kindOfPiece;
+  //   lastChangeX = x;
+  //   lastChangeY = y;
+  //   onSquareChange(x, y, kindOfPiece);
+  //   if(isGameFinished(boardSquares, lastChangeX, lastChangeY, &gameResult))
+  //   {
+  //     onEndOfGame(gameResult);
+  //   }
+  //   return OK;
+  // }
 }
 
 PieceType Board_getSquareContent (Coordinate x, Coordinate y)
 {
-  // TODO: à compléter
+  // On récupère le contenu de la case
+  
+  //return boardSquares[x][y];
 }
