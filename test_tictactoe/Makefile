@@ -1,5 +1,5 @@
 CC=gcc
-DEPS = test_checkEndOfGame.h
+DEPS = test_checkEndOfGame.h ../etape1/board.c
 SRCS = main.c test_checkEndOfGame.c
 OBJS = main.o test_checkEndOfGame.o
 
