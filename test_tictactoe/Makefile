@@ -1,13 +1,13 @@
 CC=gcc
-DEPS = test_CheckEndOfGame.h
-SRCS = main.c test_CheckEndOfGame.c
-OBJS = main.o test_CheckEndOfGame.o
+DEPS = test_checkEndOfGame.h
+SRCS = main.c test_checkEndOfGame.c
+OBJS = main.o test_checkEndOfGame.o
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 test: $(OBJS)
-	$(CC) -o $@ $< $(CFLAGS)
+	$(CC) -o $@ $(OBJS) $(CFLAGS)
 
 test2:
 	echo 'aaaaaaaaa'

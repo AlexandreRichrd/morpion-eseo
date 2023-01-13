@@ -9,7 +9,7 @@
 
 // WARNING : ".c" file inclusion only allowed for unit tests !
 #include "../etape1/board.c"
-#include "test_CheckEndOfGame.h"
+#include "test_checkEndOfGame.h"
 #include <stdio.h>
 
 typedef struct
@@ -54,12 +54,12 @@ static const BoardDataTest DataTest[] =
 {CIRCLE, CIRCLE, NONE},
 {NONE, NONE, CROSS}}, 2, 2, false, DRAW},
 {
-{
+{//6
 {CROSS, NONE, NONE},
 {CROSS, CIRCLE, CIRCLE},
 {CROSS, NONE, NONE}}, 0, 1, true, CROSS_WINS},
 {
-{
+{//7
 {CROSS, NONE, NONE},
 {CIRCLE, CIRCLE, CIRCLE},
 {CROSS, NONE, NONE}}, 2, 1, true, CIRCLE_WINS},
@@ -74,7 +74,7 @@ static const BoardDataTest DataTest[] =
 {CROSS, CIRCLE, NONE},
 {CIRCLE, NONE, CROSS}}, 1, 1, true, CIRCLE_WINS},
 {
-{
+{//10
 {CIRCLE, CROSS, CIRCLE},
 {CIRCLE, CROSS, CIRCLE},
 {CROSS, CIRCLE, CROSS}}, 2, 0, true, DRAW}
