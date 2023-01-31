@@ -10,10 +10,23 @@
 #include "board.h"
 
 
+SquareChangeCallback Game_SquareChangeCallback(Coordinate x, Coordinate y, PieceType newContent){
+  
+}
+
+
+EndOfGameCallback Game_EndOfGameCallback(GameResult result){
+
+}
+
+
+
 
 void Game_init (void)
 {
   // TODO: initialiser tous les modules
+  Board_init(&Game_SquareChangeCallback, &Game_EndOfGameCallback);
+
 }
 
 void Game_free (void)

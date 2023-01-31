@@ -6,6 +6,15 @@
 
 void BoardView_init (void)
 {
+  for(int i = 0; i < 3; i++){
+    for(int j = 0; j < 3; j++){
+      printf(" ");
+      if(j < 2){
+        printf(" | ");
+      }
+    }
+    printf("\n");
+  }
 }
 
 void BoardView_free (void)
@@ -15,6 +24,20 @@ void BoardView_free (void)
 void BoardView_displayAll (void)
 {
   // TODO: à compléter
+  PieceType piece;
+  for(int i = 0; i < 3; i++){
+    for(int j = 0; j < 3; j++){
+      piece = Board_getSquareContent(i, j);
+      if(piece == NONE){
+        printf(" ");
+      }else if(piece == CROSS){
+        printf("X");
+      }else if(piece == CIRCLE){
+        printf("O");
+      }
+    }
+    printf("\n");
+  }
 }
 
 void BoardView_displaySquare (Coordinate x, Coordinate y, PieceType kindOfPiece)

@@ -11,9 +11,9 @@ int main (void)
 {
 	Game_init ();
 
-	Game_loop ();
+	// Game_loop ();
 
-	Game_free ();
+	// Game_free ();
 
 	return 0;
 }

@@ -24,27 +24,27 @@ typedef struct
 static const BoardDataTest DataTest[] =
 {
 {
-{
+{//1
 {NONE, NONE, NONE},
 {NONE, NONE, NONE},
 {NONE, NONE, NONE}}, 0, 0, false, DRAW},
 {
-{
+{//2
 {NONE, NONE, NONE},
 {NONE, CROSS, NONE},
 {NONE, NONE, NONE}}, 0, 0, false, DRAW},
 {
-{
+{//3
 {NONE, NONE, NONE},
 {NONE, CIRCLE, NONE},
 {NONE, NONE, NONE}}, 1, 1, false, DRAW},
 {
-{
+{//4
 {CROSS, NONE, NONE},
 {CROSS, CIRCLE, NONE},
 {NONE, NONE, NONE}}, 0, 1, false, DRAW},
 {
-{
+{//5
 {CROSS, NONE, NONE},
 {CROSS, CIRCLE, CIRCLE},
 {NONE, CROSS, NONE}}, 1, 2, false, DRAW},
@@ -64,12 +64,12 @@ static const BoardDataTest DataTest[] =
 {CIRCLE, CIRCLE, CIRCLE},
 {CROSS, NONE, NONE}}, 2, 1, true, CIRCLE_WINS},
 {
-{
+{//8
 {CROSS, NONE, NONE},
 {CIRCLE, CROSS, CIRCLE},
 {NONE, NONE, CROSS}}, 0, 0, true, CROSS_WINS},
 {
-{
+{//9
 {CROSS, NONE, CIRCLE},
 {CROSS, CIRCLE, NONE},
 {CIRCLE, NONE, CROSS}}, 1, 1, true, CIRCLE_WINS},
