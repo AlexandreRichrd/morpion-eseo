@@ -1,7 +1,11 @@
 #include "board.h"
 #include <assert.h>
+#include <stdio.h>
 
 PieceType board[3][3];
+
+SquareChangeCallback Board_SquareChangeCallback;
+EndOfGameCallback Board_EndOfGameCallback;
 
 /**
  * Check if the game has to be ended. Only alignment from the last
@@ -107,6 +111,21 @@ void Board_init (SquareChangeCallback onSquareChange, EndOfGameCallback onEndOfG
       board[i][j] = NONE;
     }
   }
+  Board_SquareChangeCallback = onSquareChange;
+  Board_EndOfGameCallback = onEndOfGame;
+
+  printf("On initialise le board\n");
+  //On affiche le board
+  for(int i = 0; i < 3; i++)
+  {
+    for(int j = 0; j < 3; j++)
+    {
+      printf("%d | ", board[i][j]);
+    }
+    printf("\n");
+  }
+  Board_getSquareContent(0, 0);
+
 }
 
 void Board_free ()
@@ -127,25 +146,43 @@ PutPieceResult Board_putPiece (Coordinate x, Coordinate y, PieceType kindOfPiece
   }
   else // Si tout est bon, on place la pièce
   {
-    board[x][y] = kindOfPiece;
-    onSquareChange(x, y, kindOfPiece);
-
-    GameResult* gameResult;
-
-    if(isGameFinished(board, x, y, &gameResult))
+    printf("On place la piece en %d %d", x, y);
+    if(kindOfPiece == CIRCLE)
     {
-      onEndOfGame(gameResult);
+      printf("Cercle");
+      board[x][y] = CIRCLE;
+      Board_SquareChangeCallback(x, y, kindOfPiece);
     }
+    else if(kindOfPiece == CROSS)
+    {
+      printf("Croix");
+      board[x][y] = CROSS;
+      Board_SquareChangeCallback(x, y, kindOfPiece);
+    }
+    else
+    {
+      printf("Erreur");
+    }
+
+    
+
+
+    // GameResult* gameResult;
+
+    // if(isGameFinished(board, x, y, gameResult))
+    // {
+    //   Board_EndOfGameCallback(*gameResult);
+    // }
     return PIECE_IN_PLACE;
   }
 }
 
 PieceType Board_getSquareContent (Coordinate x, Coordinate y)
 {
-  if(x > 0 && x < 2 && y > 0 && y < 2) // On vérifie si les cooredonnées sont bien dans la gille
-  {
-    // On récupère le contenu de la case
     return board[x][y];
-  }
+  // if(x > 0 && x < 2 && y > 0 && y < 2) // On vérifie si les cooredonnées sont bien dans la gille
+  // {
+  //   // On récupère le contenu de la case
+  // }
   
 }
