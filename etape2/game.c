@@ -52,7 +52,6 @@ void Game_loop (void)
   bool GameFinished = false;
   while(!GameFinished && cpt < 9){
     PlayerManager_oneTurn();
-    
     cpt++;
   }
     

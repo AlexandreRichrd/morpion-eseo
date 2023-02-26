@@ -25,23 +25,24 @@ void BoardView_init (void)
   printf("                                 *   |   |   *\n");
   printf("                                 *************\n");
 
+  // for(int i = 0; i < 3; i++){
+  //   for(int j = 0; j < 3; j++){
+  //     printf(" ");
+  //     if(j < 2){
+  //       printf(" | ");
+  //     }
+  //   }
+  //   printf("\n");
+  // }
 }
 
 void BoardView_free (void)
 {
-  for(int i = 0; i < 3; i++){
-    for(int j = 0; j < 3; j++){
-      printf(" ");
-      if(j < 2){
-        printf(" | ");
-      }
-    }
-    printf("\n");
-  }
 }
 
 void BoardView_displayAll (void)
 {
+  // TODO: à compléter
   // Affichage du plateau de jeu
   printf("                                 *************\n");
   PieceType piece;
