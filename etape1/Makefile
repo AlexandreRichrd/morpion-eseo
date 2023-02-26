@@ -2,11 +2,16 @@ CC=gcc
 CFLAGS=-DCONFIG_TEXTUI -DCONFIG_PLAYER_MANAGER_MOCK
 DEPS = game.h  board.h board_view.h player_manager.h
 SRCS = main.c game.c  board.c board_view_text.c player_manager_mock.c
-OBJS = main.o game.o  board.o board_view_text.o player_manager_mock.o
+OBJS = main.o game.o  board.o board_view_text.o player_manager_mock.o 
+
+SRCS2 = main.c game.c  board.c board_view_text.c ../etape2/player_manager_scanf.c
+OBJS2 = main.o game.o  board.o board_view_text.o player_manager_scanf.o
 
 
 etape1: $(OBJS)
 	$(CC) -o $@ $(OBJS) $(CFLAGS)
+
+etape2: $(OBJS2)
 
 
 clean:
